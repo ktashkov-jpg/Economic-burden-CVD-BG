@@ -1,0 +1,35 @@
+﻿icd_code,source_icd_name_bg,proposed_clinical_group,review_status
+I10,Есенциална хипертония,Hypertensive diseases,Provisional block-based classification; clinical review pending
+I11.0,Хипертонично сърце със (застойна) сърдечна недостатъчност,Hypertensive diseases,Provisional block-based classification; clinical review pending
+I11.9,Хипертонично сърце без (застойна) сърдечна недостатъчност,Hypertensive diseases,Provisional block-based classification; clinical review pending
+I12.0,Хипертоничен бъбрек с бъбречна недостатъчност,Hypertensive diseases,Provisional block-based classification; clinical review pending
+I12.9,Хипертоничен бъбрек без бъбречна недостатъчност,Hypertensive diseases,Provisional block-based classification; clinical review pending
+I13.0,Съчетание на хипертонично сърце с хипертоничен бъбрек и със (застойна) сърдечна недостатъчност,Hypertensive diseases,Provisional block-based classification; clinical review pending
+I13.1,Съчетание на хипертонично сърце с хипертоничен бъбрек и с бъбречна недостатъчност,Hypertensive diseases,Provisional block-based classification; clinical review pending
+I13.2,Съчетание на хипертонично сърце с хипертоничен бъбрек с наличие както на (застойна) сърдечна недоста,Hypertensive diseases,Provisional block-based classification; clinical review pending
+I20.0,Нестабилна стенокардия,Ischaemic heart diseases,Provisional block-based classification; clinical review pending
+I20.1,Стенокардия с документиран спазъм,Ischaemic heart diseases,Provisional block-based classification; clinical review pending
+I20.8,Други видове стенокардия,Ischaemic heart diseases,Provisional block-based classification; clinical review pending
+I20.9,"Стенокардия, неуточнена",Ischaemic heart diseases,Provisional block-based classification; clinical review pending
+I25.5,Исхемична кардиомиопатия,Ischaemic heart diseases,Provisional block-based classification; clinical review pending
+I26.0,Белодробна емболия със споменаване на остро белодробно сърце,Pulmonary heart disease and pulmonary circulation,Provisional block-based classification; clinical review pending
+I26.9,Белодробна емболия без споменаване на остро белодробно сърце,Pulmonary heart disease and pulmonary circulation,Provisional block-based classification; clinical review pending
+I27.0,Първична белодробна хипертония,Pulmonary heart disease and pulmonary circulation,Provisional block-based classification; clinical review pending
+I44.2,"Атриовентрикуларен блок, пълен",Other forms of heart disease,Provisional block-based classification; clinical review pending
+I45.6,Синдром на преждевременно възбуждане,Other forms of heart disease,Provisional block-based classification; clinical review pending
+I47.1,Надкамерна тахикардия,Other forms of heart disease,Provisional block-based classification; clinical review pending
+I48,Предсърдно мъждене и трептене,Other forms of heart disease,Provisional block-based classification; clinical review pending
+I49.5,Синдром на болния синусов възел,Other forms of heart disease,Provisional block-based classification; clinical review pending
+I50.0,Застойна сърдечна недостатъчност,Other forms of heart disease,Provisional block-based classification; clinical review pending
+I50.1,Левокамерна недостатъчност,Other forms of heart disease,Provisional block-based classification; clinical review pending
+I69.0,Последици от субарахноидален кръвоизлив,Cerebrovascular diseases,Provisional block-based classification; clinical review pending
+I69.1,Последици от вътремозъчен кръвоизлив,Cerebrovascular diseases,Provisional block-based classification; clinical review pending
+I69.2,Последици от друг нетравматичен вътречерепен кръвоизлив,Cerebrovascular diseases,Provisional block-based classification; clinical review pending
+I69.3,Последици от мозъчен инфаркт,Cerebrovascular diseases,Provisional block-based classification; clinical review pending
+I69.4,"Последици от инсулт, неуточнен като кръвоизлив или инфаркт на мозъка",Cerebrovascular diseases,Provisional block-based classification; clinical review pending
+I69.8,Последици от други и неуточнени мозъчносъдови болести,Cerebrovascular diseases,Provisional block-based classification; clinical review pending
+I73.1,Облитериращ тромбангиит (болест на Buerger),"Diseases of arteries, arterioles and capillaries",Provisional block-based classification; clinical review pending
+I74.3,Емболия и тромбоза на артерии на долните крайници,"Diseases of arteries, arterioles and capillaries",Provisional block-based classification; clinical review pending
+I80.0,Флебит и тромбофлебит на повърхностни съдове на долните крайници,"Diseases of veins, lymphatic vessels and nodes",Provisional block-based classification; clinical review pending
+I80.1,Флебит и тромбофлебит на феморална вена,"Diseases of veins, lymphatic vessels and nodes",Provisional block-based classification; clinical review pending
+I80.2,Флебит и тромбофлебит на дълбоки съдове на долните крайници,"Diseases of veins, lymphatic vessels and nodes",Provisional block-based classification; clinical review pending
