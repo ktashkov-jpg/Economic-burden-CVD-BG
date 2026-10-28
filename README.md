@@ -2,7 +2,7 @@
 
 Code, source data and derived outputs for:
 
-> Tachkov K. *Who Pays for Cardiovascular Pharmacotherapy in Bulgaria? Payer and Patient Costs and Treated Prevalence From National Claims Data, 2021–2025.* Manuscript v3, 28 October 2026 (target journal: Value in Health Regional Issues).
+> Tachkov K. *Who Pays for Cardiovascular Pharmacotherapy in Bulgaria? Payer and Patient Costs and Treated Prevalence From National Claims Data, 2021–2025.* Manuscript v4, 28 October 2026 (target journal: Value in Health Regional Issues).
 
 Contact: Konstantin Tachkov, Faculty of Pharmacy, Medical University of Sofia. ktashkov@pharmfac.mu-sofia.bg, ORCID 0000-0002-3961-7556.
 
@@ -39,7 +39,7 @@ Economic-burden-CVD-BG/
 │   └── sql/                          extraction queries for NHIF Tables 1, 3 and 4
 ├── output/                           all derived tables (see below)
 ├── figures/                          figure1_monthly_payer_patient.png, figure2_regional_hypertension.png (300 dpi)
-└── manuscript/                       submitted manuscript (v3) and supplementary appendix (v2), .md and .docx
+└── manuscript/                       submitted manuscript (v4) and supplementary appendix (v3), .md and .docx
 ```
 
 ## How to run
@@ -51,7 +51,7 @@ PYTHONIOENCODING=utf-8 python scripts/run_all.py
 
 `run_all.py` locates the bundle root from its own path, reads `source_data/` only and overwrites `output/` and `figures/`. The price panel step reads 110 Excel files and takes about 8 minutes; the whole run takes about 9 minutes.
 
-Reproducibility check (28 October 2026): a clean run from this bundle reproduced every table in `output/` byte for byte, including `pdl_panel_all.csv`, `product_links.csv` and the co-payment file. Figure 1 was pixel-identical. In Figure 2 only the placement of the region labels can differ between runs (adjustText); the points and fitted line are identical. The figures in `figures/` are the ones submitted with the manuscript.
+Reproducibility check (28 October 2026, after adding the 2021–2022 price lists): a clean run from this bundle reproduced every table in `output/` byte for byte, including `pdl_panel_all.csv`, `product_links.csv` and the co-payment file. Figure 1 was pixel-identical. In Figure 2 only the placement of the region labels can differ between runs (adjustText); the points and fitted line are identical. The figures in `figures/` are the ones submitted with the manuscript.
 
 ## Where each manuscript result comes from
 
@@ -68,7 +68,7 @@ Reproducibility check (28 October 2026): a clean run from this bundle reproduced
 | Supplementary Tables S1–S3 (reconciliation, ICD groups, product linkage) | output/reconciliation_t1_t3.csv, product_links.csv |
 | Co-payment per dispensing row (2021–2025) | output/table1_copay_2021_2025.csv.gz |
 
-`output/supplement_tables.md` is the generated supplement; the submitted version (`manuscript/SUPPLEMENT2_v2_…`) is the same text.
+`output/supplement_tables.md` is the generated supplement; the submitted version (`manuscript/SUPPLEMENT2_v3_…`) is the same text.
 
 ## Method notes
 
