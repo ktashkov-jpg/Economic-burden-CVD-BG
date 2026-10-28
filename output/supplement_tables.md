@@ -57,14 +57,14 @@ ICD-10 code names follow the NHIF reports (Bulgarian). I25.5 is the only I25 cod
 
 | Linkage step | NHIF products | % of reimbursement | % of packages |
 |---|---|---|---|
-| ATC + trade name + strength + pack size | 1379 | 95.6 | 90.9 |
+| ATC + trade name + strength + pack size | 1454 | 95.7 | 91.0 |
 | ATC + trade name without trailing digits + strength + pack size | 28 | 2.1 | 4.5 |
-| ATC + first word of trade name + strength + pack size | 56 | 0.6 | 1.1 |
-| ATC + first word of trade name + pack size | 40 | 0.9 | 2.3 |
-| ATC + strength + pack size | 82 | 0.2 | 0.5 |
-| Not linked (ATC-group ratio applied) | 67 | 0.6 | 0.8 |
+| ATC + first word of trade name + strength + pack size | 52 | 0.6 | 1.1 |
+| ATC + first word of trade name + pack size | 35 | 0.9 | 2.3 |
+| ATC + strength + pack size | 32 | 0.1 | 0.4 |
+| Not linked (ATC-group ratio applied) | 51 | 0.6 | 0.7 |
 
-Co-payments were estimated for 2023–2025. Price source by share of 2023–2025 reimbursement: same-month list 99.4 %, nearest available month 0.2 %, ATC-group imputation 0.4 %.
+Co-payments were estimated for 2021–2025. Price source by share of 2021–2025 reimbursement: same-month list 99.4 %, nearest available month 0.1 %, ATC-group imputation 0.5 %.
 
 ## Supplementary Table S4. The 12 most frequent diagnoses, treated persons per month, 2021 and 2025
 
@@ -100,16 +100,16 @@ Deflated with the Bulgarian all-items HICP (annual average, 2015 = 100: 2021 109
 
 Patient co-payments by disease group, EUR million (nominal):
 
-| Disease group | 2023 | 2024 | 2025 |
-|---|---|---|---|
-| Arrhythmias and heart failure (I44–I50) | 52.7 | 64.4 | 73.2 |
-| Arterial disease (I73–I74) | 0.2 | 0.2 | 0.2 |
-| Hypertensive diseases (I10–I13) | 93.4 | 80.1 | 80.1 |
-| Ischaemic heart disease (I20, I25) | 28.5 | 26.3 | 27.9 |
-| Pulmonary embolism and pulmonary hypertension (I26–I27) | 2.0 | 2.7 | 2.9 |
-| Sequelae of cerebrovascular disease (I69) | 17.6 | 19.1 | 19.5 |
-| Venous thromboembolism (I80) | 4.1 | 5.5 | 6.2 |
-| All cardiovascular diagnoses | 198.5 | 198.1 | 210.0 |
+| Disease group | 2021 | 2022 | 2023 | 2024 | 2025 |
+|---|---|---|---|---|---|
+| Arrhythmias and heart failure (I44–I50) | 38.1 | 43.4 | 52.7 | 64.4 | 73.2 |
+| Arterial disease (I73–I74) | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 |
+| Hypertensive diseases (I10–I13) | 95.4 | 92.0 | 93.4 | 80.1 | 80.1 |
+| Ischaemic heart disease (I20, I25) | 26.0 | 26.7 | 28.5 | 26.3 | 27.9 |
+| Pulmonary embolism and pulmonary hypertension (I26–I27) | 1.6 | 1.6 | 2.0 | 2.7 | 2.9 |
+| Sequelae of cerebrovascular disease (I69) | 18.0 | 17.5 | 17.6 | 19.1 | 19.5 |
+| Venous thromboembolism (I80) | 3.1 | 3.6 | 4.1 | 5.5 | 6.2 |
+| All cardiovascular diagnoses | 182.4 | 185.1 | 198.5 | 198.1 | 210.0 |
 
 ## Supplementary Table S6. Treated prevalence and NHIF cost per capita by region (NUTS-3), 2024
 
@@ -154,14 +154,14 @@ Age-adjusted value: observed value minus slope × (regional − national percent
 
 ## Supplementary Table S7. Sensitivity analyses: patient co-payments, EUR million
 
-| Scenario | 2023 | 2024 | 2025 | 2025 change vs base, % |
-|---|---|---|---|---|
-| Base case | 198.5 | 198.1 | 210.0 | +0.0 |
-| (a) PDL NHIF amount instead of observed amount | 194.2 | 193.3 | 205.3 | -2.2 |
-| (b) Poorly matched rows replaced by ATC-group ratio | 198.7 | 194.9 | 209.9 | -0.1 |
-| (c) 2025 priced at the December 2024 list | 198.5 | 198.1 | 210.8 | +0.4 |
-| (d) 2025 priced at the January 2026 list | 198.5 | 198.1 | 193.9 | -7.7 |
-| (e) 2024 priced at the Annex 4 maximum retail price (99.4 % of 2024 reimbursement covered) | – | 204.5 vs 193.4 | – | +5.8 (2024) |
+| Scenario | 2021 | 2022 | 2023 | 2024 | 2025 | 2025 change vs base, % |
+|---|---|---|---|---|---|---|
+| Base case | 182.4 | 185.1 | 198.5 | 198.1 | 210.0 | +0.0 |
+| (a) PDL NHIF amount instead of observed amount | 178.9 | 181.3 | 194.2 | 193.3 | 205.3 | -2.2 |
+| (b) Poorly matched rows replaced by ATC-group ratio | 182.4 | 185.2 | 198.6 | 194.9 | 209.9 | -0.1 |
+| (c) 2025 priced at the December 2024 list | 182.4 | 185.1 | 198.5 | 198.1 | 210.8 | +0.4 |
+| (d) 2025 priced at the January 2026 list | 182.4 | 185.1 | 198.5 | 198.1 | 193.9 | -7.7 |
+| (e) 2024 priced at the Annex 4 maximum retail price (99.4 % of 2024 reimbursement covered) | – | – | – | 204.5 vs 193.4 | – | +5.8 (2024) |
 
 Treated prevalence scenarios, 2025, per 100 population (mean monthly; annual if 10 treated months per person; annual if 8):
 

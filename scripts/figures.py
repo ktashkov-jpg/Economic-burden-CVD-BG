@@ -10,14 +10,14 @@ plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 9, 'axes.edgecol
 
 m = pd.read_csv(f'{OUT}/monthly_payer_patient.csv', parse_dates=['month'])
 fig, ax = plt.subplots(figsize=(6.5, 3.6))
-ax.plot(m.month, m.patient / 1e6, color=ORANGE, lw=2, marker='o', ms=3.5)
-ax.plot(m.month, m.payer / 1e6, color=BLUE, lw=2, marker='o', ms=3.5)
+ax.plot(m.month, m.patient / 1e6, color=ORANGE, lw=2, marker='o', ms=2.5)
+ax.plot(m.month, m.payer / 1e6, color=BLUE, lw=2, marker='o', ms=2.5)
 ax.axvline(pd.Timestamp('2024-04-01'), color=MUTED, ls=':', lw=1)
 ax.text(pd.Timestamp('2024-04-15'), 4.6, 'April 2024: 100 %\nreimbursement for\n407 products', color=MUTED, fontsize=7.5, va='bottom')
 ax.text(m.month.iloc[-1] + pd.Timedelta(days=12), m.patient.iloc[-1] / 1e6, 'Patients\n(co-payments)', color=INK, fontsize=8, va='center')
 ax.text(m.month.iloc[-1] + pd.Timedelta(days=12), m.payer.iloc[-1] / 1e6, 'NHIF', color=INK, fontsize=8, va='center')
 import matplotlib.dates as mdates
-ax.xaxis.set_major_locator(mdates.MonthLocator(bymonth=[1,7])); ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+ax.xaxis.set_major_locator(mdates.MonthLocator(bymonth=[1])); ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
 ax.set_ylim(0, 20); ax.set_ylabel('EUR million per month'); ax.grid(axis='y', color=GRID, lw=0.6); ax.set_axisbelow(True)
 ax.set_xlim(m.month.iloc[0] - pd.Timedelta(days=15), m.month.iloc[-1] + pd.Timedelta(days=110))
 fig.tight_layout(); fig.savefig(f'{OUT}/figure1_monthly_payer_patient.png', dpi=300); plt.close(fig)

@@ -1,6 +1,6 @@
-"""Estimate patient co-payments for NHIF Table 1 dispensings, Jan 2023-Dec 2025.
+"""Estimate patient co-payments for NHIF Table 1 dispensings, Jan 2021-Dec 2025.
 co-payment per pack = PDL price (Annex 1 price column used by the NHIF for the row) - NHIF amount actually paid per pack (Table 1).
-Prices: same-month snapshot (Feb 2023-Dec 2025); Jan 2023 uses Feb 2023.
+Prices: same-month snapshot (Jan 2021-Dec 2025).
 The Jan 2026 list (in EUR, converted at 1.95583) is used only as a nearest-month fallback."""
 import sys
 import numpy as np, pandas as pd
@@ -9,7 +9,6 @@ EUR = 1.95583
 t1 = pd.read_csv(T1)
 t1.columns = ['file','month','atc','atc_name','nhif','name','form','conc','count','icd','icd_name','persons','packs','reimb']
 t1['month'] = t1.month.str[:7]
-t1 = t1[t1.month >= '2023-01'].copy()
 links = pd.read_csv(LINKS)[['nhif','nat_no','tier']]
 p = pd.read_csv(PANEL, dtype={'nat_no': str})
 p.loc[p.month == '2026-01', ['price_a1','nhif_amount','price_wholesale_a1','price_retail_a1','max_retail']] *= EUR
@@ -43,7 +42,7 @@ def attach(df, snap_month_col):
     return d.drop(columns=['price_any','pdl_nhif_any','max_retail_any'])
 
 d = t1.copy()
-d['snap'] = d.month.where(d.month != '2023-01', '2023-02')
+d['snap'] = d.month
 d = attach(d, 'snap')
 # sensitivity: 2025 priced at the December 2024 or January 2026 list
 for snap, col in [('2024-12', 'price_dec24'), ('2026-01', 'price_jan26')]:
@@ -77,7 +76,7 @@ for lvl in [7, 5, 4, 3]:
     rr = pd.DataFrame({'year': d.loc[need,'year'], 'k': k[need]}).merge(r.reset_index().rename(columns={'atc':'k'}), on=['year','k'], how='left')
     d.loc[need, 'copay'] = (rr.ratio.values * d.loc[need, 'reimb'].values)
     d.loc[need & d.copay.notna(), 'price_source'] = f'imputed_atc{lvl}'
-d.to_csv(f'{OUTDIR}/table1_copay_2023_2025.csv.gz', index=False)
+d.to_csv(f'{OUTDIR}/table1_copay_2021_2025.csv.gz', index=False)
 v = d[d.pdl_nhif.notna()]
 print('NHIF amount within 5 % of PDL, share of reimbursement by year:',
       (v[v.nhif_match5].groupby('year').reimb.sum() / v.groupby('year').reimb.sum()).round(3).to_dict(), file=sys.stderr)

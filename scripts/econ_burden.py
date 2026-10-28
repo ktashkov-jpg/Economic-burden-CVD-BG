@@ -22,7 +22,7 @@ pop = pd.read_csv(POP, index_col=0)['TOTAL'].to_dict()
 t3 = pd.read_csv(RAW / 'nhif_table_3_cvd_2021_2025.csv'); t3.columns = ['file','month','icd','icd_name','persons','reimb']
 t3['year'] = t3.month.str[:4].astype(int); t3['group'] = t3.icd.map(grp)
 assert t3.group.notna().all()
-t1c = pd.read_csv(OUT / 'table1_copay_2023_2025.csv.gz'); t1c['group'] = t1c.icd.map(grp)
+t1c = pd.read_csv(OUT / 'table1_copay_2021_2025.csv.gz'); t1c['group'] = t1c.icd.map(grp)
 t1 = pd.read_csv(RAW / 'nhif_table_1_cvd_2021_2025.csv')
 t1.columns = ['file','month','atc','atc_name','nhif','name','form','conc','count','icd','icd_name','persons','packs','reimb']
 t1['year'] = t1.month.str[:4].astype(int)
@@ -63,7 +63,7 @@ pay_eur = pay / EUR
 pay_eur_real = pay_eur.mul(pd.Series({y: HICP[2025] / HICP[y] for y in pay.index}), axis=0)
 pay_eur.to_csv(OUT / 'payer_cost_eur_nominal.csv'); pay_eur_real.to_csv(OUT / 'payer_cost_eur_2025prices.csv')
 
-# ---------- 3. Patient co-payment (Table 1 + PDL, 2023-2025) ----------
+# ---------- 3. Patient co-payment (Table 1 + PDL, 2021-2025) ----------
 scen = {'base': 'copay', 'pdl_nhif_amount': 'copay_pdl'}
 t1c['dev'] = (t1c.pdl_nhif - t1c.nhif_per_pack).abs() / t1c.nhif_per_pack
 # scenario: replace poorly matched rows (PDL NHIF amount >20 % off observed) by the ATC-level co-payment ratio
@@ -88,7 +88,7 @@ pd.Series(sc24).to_csv(OUT / 'copay_2024_max_retail_check.csv')
 
 # ---------- 4. Combined cost and cost per treated person ----------
 rows = []
-for y in [2023, 2024, 2025]:
+for y in range(2021, 2026):
     for g in list(GROUP_EN.values()) + ['All cardiovascular diagnoses']:
         P = pay.loc[y, g] / EUR; C = copay_g.loc[y, g] / EUR
         if g == 'All cardiovascular diagnoses':
@@ -111,7 +111,7 @@ zero.to_csv(OUT / 'share_packs_zero_copay.csv')
 
 # ---------- 6. Monthly series ----------
 mon = t1c.groupby('month').agg(payer=('reimb','sum'), patient=('copay','sum')).div(EUR)
-mon['persons_diag_level'] = t3[t3.year >= 2023].groupby('month').persons.sum().values
+mon['persons_diag_level'] = t3.groupby('month').persons.sum().values
 mon.to_csv(OUT / 'monthly_payer_patient.csv')
 
 # ---------- 7. Regional (Table 4, 2024) ----------

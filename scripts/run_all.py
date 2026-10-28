@@ -1,5 +1,5 @@
 """Run the full economic-burden analysis from the bundle root, in order.
-Reads source_data/ only; overwrites output/ and figures/. Building the price panel reads 60 Excel files and takes about 5 minutes."""
+Reads source_data/ only; overwrites output/ and figures/. Building the price panel reads 110 Excel files and takes about 8 minutes."""
 import shutil, subprocess, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]

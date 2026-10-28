@@ -19,8 +19,8 @@ Economic-burden-CVD-BG/
 │   │   ├── nhif_table_4_cvd_2021_2025.csv   regional fund (RZOK) × ICD × month (49 141 rows)
 │   │   └── SHA256SUMS.txt
 │   ├── pdl/                          Positive Drug List snapshots (NCPR)
-│   │   ├── appendix_1/               Annex 1, reimbursement terms, monthly Feb 2023–Dec 2025 + Jan 2026 (36 files)
-│   │   └── appendix_4/               Annex 4, maximum prices, monthly Jan 2024–Dec 2025 (24 files)
+│   │   ├── appendix_1/               Annex 1, reimbursement terms, monthly Jan 2021–Dec 2025 + Jan 2026 (61 files)
+│   │   └── appendix_4/               Annex 4, maximum prices, monthly Jan 2021–Jan 2023 and Jan 2024–Dec 2025 (49 files)
 │   └── reference/
 │       ├── observed_icd_lookup.csv   ICD-10 codes observed in the extract and their disease group
 │       ├── population_BG.csv         Eurostat demo_pjangroup, population on 1 January, Bulgaria 2020–2025
@@ -49,9 +49,9 @@ pip install -r requirements.txt
 PYTHONIOENCODING=utf-8 python scripts/run_all.py
 ```
 
-`run_all.py` locates the bundle root from its own path, reads `source_data/` only and overwrites `output/` and `figures/`. The price panel step reads 60 Excel files and takes about 5 minutes; the whole run takes about 6 minutes.
+`run_all.py` locates the bundle root from its own path, reads `source_data/` only and overwrites `output/` and `figures/`. The price panel step reads 110 Excel files and takes about 8 minutes; the whole run takes about 9 minutes.
 
-Reproducibility check (28 October 2026): a clean run from this bundle reproduced every table in `output/` byte for byte, including `pdl_panel_all.csv`, `product_links.csv` and `table1_copay_2023_2025.csv.gz`. Figure 1 was pixel-identical. In Figure 2 only the placement of the region labels can differ between runs (adjustText); the points and fitted line are identical. The figures in `figures/` are the ones submitted with the manuscript.
+Reproducibility check (28 October 2026): a clean run from this bundle reproduced every table in `output/` byte for byte, including `pdl_panel_all.csv`, `product_links.csv` and the co-payment file. Figure 1 was pixel-identical. In Figure 2 only the placement of the region labels can differ between runs (adjustText); the points and fitted line are identical. The figures in `figures/` are the ones submitted with the manuscript.
 
 ## Where each manuscript result comes from
 
@@ -66,14 +66,14 @@ Reproducibility check (28 October 2026): a clean run from this bundle reproduced
 | Figure 2, Section 3.5, Supplementary Table S6 (regional, 2024) | output/regional_2024.csv, regional_regressions.txt |
 | Section 3.6, Supplementary Table S7 (sensitivity analyses) | output/copay_scenarios_eur.csv, copay_2024_max_retail_check.csv |
 | Supplementary Tables S1–S3 (reconciliation, ICD groups, product linkage) | output/reconciliation_t1_t3.csv, product_links.csv |
-| Co-payment per dispensing row (2023–2025) | output/table1_copay_2023_2025.csv.gz |
+| Co-payment per dispensing row (2021–2025) | output/table1_copay_2021_2025.csv.gz |
 
 `output/supplement_tables.md` is the generated supplement; the submitted version (`manuscript/SUPPLEMENT2_v2_…`) is the same text.
 
 ## Method notes
 
-- **Payer cost** is NHIF reimbursement from Table 3. **Patient cost** (2023–2025) is the PDL Annex 1 price of the row whose ICD list contains the dispensed diagnosis (retail price below 100 % reimbursement, wholesale-based price at 100 %) minus the NHIF amount actually paid per pack in Table 1, bounded at zero. Each month is priced with that month's list; January 2023 uses February 2023. The January 2026 list is in EUR and is converted to BGN at 1.95583; it is used only as a nearest-month fallback and in sensitivity analysis (d).
-- **Validity checks.** Table 1 and Table 3 reimbursement agree exactly every year. 99.4 % of 2023–2025 reimbursement is linked to a same-month PDL price. The PDL NHIF amount is within 5 % of the observed amount for 98.6 %, 97.8 % and 98.1 % of reimbursement in 2023, 2024 and 2025.
+- **Payer cost** is NHIF reimbursement from Table 3. **Patient cost** (2021–2025) is the PDL Annex 1 price of the row whose ICD list contains the dispensed diagnosis (retail price below 100 % reimbursement, wholesale-based price at 100 %) minus the NHIF amount actually paid per pack in Table 1, bounded at zero. Each month is priced with that month's list. The column layout of the annexes changed several times (2021 files are .xls), so `build_price_panel_all.py` locates columns by header text. The January 2026 list is in EUR and is converted to BGN at 1.95583; it is used only as a nearest-month fallback and in sensitivity analysis (d).
+- **Validity checks.** Table 1 and Table 3 reimbursement agree exactly every year. 99.4 % of 2021–2025 reimbursement is linked to a same-month PDL price. The PDL NHIF amount is within 5 % of the observed amount for 99.1 %, 98.8 %, 98.6 %, 97.8 % and 98.1 % of reimbursement in 2021 to 2025.
 - **Treated prevalence** is the mean monthly number of insured persons per disease group divided by the population on 1 January. For all diagnoses, unique persons are bounded by the largest group and by the NHIF figure for unique persons on any Annex 1 medicine (1.11 million in 2024, 1.15 million in 2025; hard-coded in econ_burden.py).
 - **Regional analysis** uses Table 4 for 2024 (complete; Table 4 lacks July 2023 in this extract). RZOK numbers follow `rzok_ref.csv` (22 = Sofia City, BG411; 23 = Sofia province, BG412), and NUTS-3 codes agree with the NSI EKATTE table.
 - **Units.** Source amounts are in BGN; the manuscript reports EUR at the fixed rate of 1.95583 BGN per EUR. Real terms use the Eurostat all-items HICP (annual average), in 2025 prices.
